@@ -1,0 +1,394 @@
+.page{
+    padding: 60px 20px 0px;
+}
+
+/* Navbar ------------------------------------------------------ */
+.navBar{
+    background: #000;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    position: fixed;
+    z-index: 11;
+    width: 100%;
+}
+.hamburgerIcon{
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: none;
+    z-index: 11;
+}
+.closeIcon{
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 11;
+    display: none;
+}
+.logo{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.sidebarLogo{
+    display: none;
+}
+.navElements{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navElement{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0px 20px;
+    font-size: .9rem;
+    cursor: pointer;
+}
+.navElement:hover{
+    color: aqua;
+}
+.navIcons{
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+.searchBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchBar input{
+    width: 250px;
+    padding: 6px 12px;
+    outline: none;
+    background: #000;
+    border: 0px;
+    color: white;
+    border-bottom: 1px solid rgb(115, 115, 115);
+}
+.searchBar input:focus{
+    border-bottom: 1px solid rgb(190, 190, 190);
+}
+.searchBar input::placeholder{
+    color: rgb(137, 137, 137);
+}
+.searchIcon{
+    font-size: 1.3rem;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 960px) {
+    .hamburgerIcon{
+        display: block;
+    }
+    .closeIcon{
+        display: block;
+        /* position: relative; */
+        top: 8px;
+        right: 25px;
+        position: absolute;
+    }
+    .navElements{
+        display: none;
+    }
+    .navElement{
+        margin-top: 40px;
+        margin-left: 45px;
+        font-size: 1rem;
+    }
+    .navIcons{
+        margin-right: 10px;
+    }
+    .navBar{
+        /* padding: 0px; */
+        width: 100%;
+    }
+    .sidebarLogo{
+        display: block;
+        position: absolute;
+        top: 3px;
+        font-size: 1.4rem;
+        left: 30px;
+    }
+}
+@media (max-width: 480px) {
+    .logo{
+        font-size: 1rem;
+        margin-top: 2px;
+    }
+    .searchBar input{
+        width: 200px;
+    }
+}
+
+/* Music -------------------------------------------------- */
+.musicCollection{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+}
+.musicBox{
+    background: rgb(87, 87, 87);
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    padding: 18px;
+    border-radius: 6px;
+    width: 180px;
+    margin: 5px 10px;
+    /* height: 200px; */
+}
+.musicTitleSubtitle{
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 80px;
+}
+.musicTitle{
+    color: white;
+    font-size: .85rem;
+}
+.musicSubtitle{
+    color: rgb(181, 181, 181);
+    font-size: .75rem;
+}
+.musicBoxImage{
+    width: 150px;
+    height: 140px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.musicBoxImageDiv{
+    position: relative;
+}
+.playButtonIcon{
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    /* border: 2px solid white; */
+    padding: 6px;
+    border-radius: 50%;
+    visibility: hidden;
+    pointer-events:none;
+}
+.musicBoxImage:hover{
+    filter: blur(1px);
+    filter: brightness(0.5);
+    opacity: 0.8;
+}
+.musicBoxImage:hover ~ .playButtonIcon{
+    visibility: visible;
+}
+.sectionHeading{
+    color: white;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    margin-left: 4px;
+    margin-top: 30px;
+}
+
+/* Music Player -------------------------------------------- */
+.musicPlayerBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: rgba(0,0,0,0.7);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 15;
+}
+.musicPlayerLeftpart{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* border: 1px solid red; */
+}
+.musicDp{
+    height: 55px;
+    width: 55px;
+    border-radius: 5px;
+}
+.musicDetails{
+    margin-left: 13px;
+    margin-right: 33px;
+    /* width: 200px; */
+}
+.musicTitleName{
+    color: white;
+    margin: 0;
+    margin-bottom: 5px;
+}
+.musicSubtitleName{
+    color: rgb(181, 181, 181);
+    margin: 0;
+}
+.favColor{
+    color: rgb(204, 200, 200);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.favColorActive{
+    font-size: 1.4rem;
+    color: #b6332b;
+    cursor: pointer;
+}
+
+
+.musicPlayerMiddlepart{
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.musicPlayIcons{
+    font-size: 1.6rem;
+    margin: 0px 6px;
+    cursor: pointer;
+}
+.seekTimes{
+    font-size: .8rem;
+}
+
+
+.musicPlayerRightpart{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.volIcons{
+    font-size: 1.4rem;
+    margin-right: 8px;
+    cursor: pointer;
+}
+.musicTimeBar{
+    position: absolute;
+    top: -3px;
+    left: 0px;
+    width: 100%;
+    color: white;
+}
+
+/* Song Details ------------------------------------------- */
+.lyricsBox{
+    
+}
+.lyricsText{
+    color: rgb(176, 176, 176);
+}
+.songTitle{
+    color: white;
+}
+.songSubtitle{
+    color: white;
+}
+
+@media (max-width: 875px){
+    .favColor{
+        display: none;
+    }
+    .musicPlayerMiddlepart{
+        color: white;
+        position: static;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (max-width: 720px){
+    .musicDetails{
+        display: none;
+    }
+}
+@media (max-width: 590px){
+    .musicPlayerLeftpart{
+        display: none;
+    }
+}
+@media (max-width: 510px){
+    .volInput{
+        width: 100px;
+    }
+}
+@media (max-width: 475px){
+    .volInput{
+        width: 100px;
+    }
+    .musicPlayIcons{
+        font-size: 1.2rem;
+        margin: 0px 6px;
+        cursor: pointer;
+    }
+    .musicPlayerMiddlepart{
+        width: 230px;
+    }
+}
+@media (max-width: 410px){
+    .volInput{
+        width: 100px;
+    }
+    .musicPlayIcons{
+        font-size: 1.2rem;
+        margin: 0px 3px;
+        cursor: pointer;
+    }
+    .musicPlayerMiddlepart{
+        width: 180px;
+    }
+}
+@media (max-width: 440px){
+    .musicBox{
+        padding: 18px;
+        border-radius: 6px;
+        width: 280px;
+        height: 420px;
+        margin: 5px 10px;
+        /* height: 200px; */
+    }
+    .musicTitleSubtitle{
+        margin-top: 12px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        height: 80px;
+    }
+    .musicTitle{
+        color: white;
+        font-size: .85rem;
+    }
+    .musicSubtitle{
+        color: rgb(181, 181, 181);
+        font-size: .75rem;
+    }
+    .musicBoxImage{
+        width: 260px;
+        height: 300px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+}

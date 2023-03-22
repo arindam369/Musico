@@ -1,0 +1,71 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: rgb(46, 46, 46);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+*{
+  box-sizing: border-box;
+}
+.components{
+  margin-top: 95px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(173, 173, 173);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(134, 134, 134);
+}
+nav, nav *
+{
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+.sidebarElements{
+    display: none;
+}
+@media (max-width: 960px) {
+    .sidebarElements{
+        display: block;
+        position: fixed;
+        height: 100%;
+        background: black;
+        width: 260px;
+        flex-direction: column;
+        left: 0;
+        z-index: 10;
+        align-items: baseline;
+        justify-content:flex-start;
+        padding-top: 100px;
+        opacity: 1;
+        transition: all 0.3s ease;
+        left: -100%;
+    }
+    .active{
+        left: 0;
+    }
+}
+
+input[type="range"] {
+  cursor: pointer;
+  /* width: 10rem; */
+  height: 3px;
+}
