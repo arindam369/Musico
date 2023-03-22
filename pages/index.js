@@ -11,7 +11,7 @@ export default function HomePage(){
   // console.log(musicCtx.songs);
 
   // console.log(musicCtx.trendingSongs);
-  console.log(musicCtx.activeSong);
+  // console.log(musicCtx.activeSong);
 
   return (
     <>
