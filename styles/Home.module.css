@@ -92,6 +92,17 @@
     .navElements{
         display: none;
     }
+    .logo{
+        position: absolute;
+        left: 60px;
+    }
+    .searchBar{
+        position: absolute;
+        right: 20px;
+    }
+    .navBar{
+        height: 60px;
+    }
     .navElement{
         margin-top: 40px;
         margin-left: 45px;
@@ -119,6 +130,11 @@
     }
     .searchBar input{
         width: 200px;
+    }
+}
+@media (max-width: 370px){
+    .logo{
+        left: 50px;
     }
 }
 
@@ -391,4 +407,47 @@
         border-radius: 6px;
         cursor: pointer;
     }
+}
+
+/* Artists ---------------------- */
+.artistBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(25, 24, 24);
+    padding: 15px 12px;
+    border-radius: 6px;
+    width: 150px;
+    cursor: pointer;
+}
+.artistName{
+    color: white;
+    font-size: 1rem;
+}
+.artistImage{
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+.loaderBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.equalizerBox{
+    /* border: 1.5px solid aqua; */
+    display: inline-block;
+    text-align: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    pointer-events:none;
+}
+.musicBoxImage:hover ~ .equalizerBox{
+    visibility: hidden;
 }

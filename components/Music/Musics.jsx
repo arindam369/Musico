@@ -60,16 +60,17 @@ export default function Musics({ musics }) {
                               className={styles.musicBoxImage}
                               onClick={()=>{musicCtx.updateSongIndex(id); musicCtx.playSong({ musicDp: songData.image? songData.image[songData.image.length-1].link: "/assets/no-image.png", id: songData.id, audioUrl: songData.downloadUrl[songData.downloadUrl.length-1].link, title: songData.name, subtitle: songData.primaryArtists})}}
                               />
-                              {musicCtx.activeSong && musicCtx.activeSong.id === songData.id? <HiPause className={styles.playButtonIcon} />: <AiFillPlayCircle className={styles.playButtonIcon} />}
+                              {musicCtx.activeSong && musicCtx.activeSong.id === songData.id && musicCtx.isPlaying? <HiPause className={styles.playButtonIcon} />: <AiFillPlayCircle className={styles.playButtonIcon} />}
+                              {musicCtx.activeSong && musicCtx.activeSong.id === songData.id && musicCtx.isPlaying && <Image src={"/assets/equalizer.svg"} height={30} width={30} alt="equalizer" className={styles.equalizerBox}/>}
                           </div>
                           <div className={styles.musicTitleSubtitle}>
                           <div className={styles.musicTitle} 
                           // onClick={()=>{router.push(`/music/${songData.track.key}`)}}
                           >
-                              {songData.name}
+                              {songData.name.length>30 ? songData.name.slice(0,30)+"...":songData.name}
                           </div>
                           <div className={styles.musicSubtitle}>
-                              {songData.primaryArtists}
+                              {songData.primaryArtists.length > 40 ? songData.primaryArtists.slice(0, 40)+"...":songData.primaryArtists}
                           </div>
                           </div>
                       </div>

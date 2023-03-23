@@ -9,19 +9,21 @@ const MusicContext = React.createContext({
   heading: "",
   volume: "",
   songDetails: {},
+  isPlaying: "",
   searchSongsByQuery: () => {},
   getInstrumentalSongs: ()=>{},
   getTrendingSongs: ()=>{},
   playSong: (song_id) => {},
   updateVolume: (vol)=>{},
-  getSongDetails: (song_id)=>{}
+  getSongDetails: (song_id)=>{},
+  updatePlaying: (isNowPlaying)=>{}
 });
 
 export const MusicContextProvider = (props) => {
   const [songs, setSongs] = useState(null);
   // const [instrumentalSongs, setInstrumentalSongs] = useState(null);
   // const [trendingSongs, setTrendingSongs] = useState(null);
-  const [heading, setHeading] = useState("");
+  const [heading, setHeading] = useState("Recommended Artists");
   const [activeSong, setActiveSong] = useState(null);
   const [volume, setVolume] = useState(5);
   const [songDetails, setSongDetails] = useState(null);
@@ -48,7 +50,9 @@ export const MusicContextProvider = (props) => {
     setHeading("Recommended Artists");
   }
   const getFocusSongs = () => {
+    console.log("Focus");
     searchSongsByQuery("FOCus");
+    setHeading("Focus");
   }
 
   const updatePlaying = (isNowPlaying)=>{
@@ -92,12 +96,6 @@ export const MusicContextProvider = (props) => {
     setVolume(vol);
   }
 
-  // useEffect(()=>{
-  //   getTrendingSongs();
-  //   getInstrumentalSongs();
-
-  //   console.log("api called");
-  // }, [])
 
   const musicContext = {
     songs: songs,
@@ -106,6 +104,7 @@ export const MusicContextProvider = (props) => {
     heading: heading,
     volume: volume,
     songDetails: songDetails,
+    isPlaying: isPlaying,
     searchSongsByQuery: searchSongsByQuery,
     playSong: playSong,
     updateVolume: updateVolume,

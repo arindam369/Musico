@@ -13,7 +13,7 @@ export default function MusicPlayer(){
 
     const musicCtx = useContext(MusicContext);
     const audioRef = useRef();
-    const [isPlaying, setIsPlaying] = useState(false);
+    // const [isPlaying, setIsPlaying] = useState(false);
 
     function updateVolume(e){
         musicCtx.updateVolume(e.target.value);
@@ -22,23 +22,26 @@ export default function MusicPlayer(){
         audioRef.current.volume = musicCtx.volume/10;
     }, [musicCtx.volume]);
 
-    useEffect(()=>{
-        setIsPlaying(audioRef.current.paused);
-    }, [audioRef, musicCtx.activeSong])
-
     function handleSetCurrTime(e){
         setCurrTime(e.target.value);
         audioRef.current.currentTime = e.target.value;
     }
 
-    function togglePlaying(){
-        if(!audioRef.current.paused){
+    useEffect(()=>{
+        if(!musicCtx.isPlaying){
             audioRef.current.pause();
-            setIsPlaying(false);
         }
         else{
             audioRef.current.play();
-            setIsPlaying(true);
+        }
+    }, [musicCtx.isPlaying])
+
+    function togglePlaying(){
+        if(musicCtx.isPlaying){
+            musicCtx.updatePlaying(false);
+        }
+        else{
+            musicCtx.updatePlaying(true);
         }
     }
     function handleForward(){
@@ -77,15 +80,15 @@ export default function MusicPlayer(){
                         <h4 className={styles.musicTitleName}>{musicCtx.activeSong.title.length > 30 ? musicCtx.activeSong.title.slice(0, 30)+"...":musicCtx.activeSong.title}</h4>
                         <h6 className={styles.musicSubtitleName}>{musicCtx.activeSong.subtitle.length > 40 ? musicCtx.activeSong.subtitle.slice(0, 40)+"...":musicCtx.activeSong.subtitle}</h6>
                     </div>
-                    <MdFavoriteBorder className={styles.favColor}/>
+                    {/* <MdFavoriteBorder className={styles.favColor}/> */}
                     {/* <MdFavorite className={styles.favColorActive}/> */}
                 </div>
                 <div className={styles.musicPlayerMiddlepart}>
                     <p className={styles.seekTimes}>{Math.floor(currTime/60)<=9? `0${Math.floor(currTime/60)}` : Math.floor(currTime/60)}:{Math.floor(currTime%60)<=9?`0${Math.floor(currTime%60)}`:Math.floor(currTime%60)}</p>
                     <IoCaretBack className={styles.musicPlayIcons} onClick={handlePrevSong}/>
                     <FaBackward className={styles.musicPlayIcons} onClick={handleBackward} />
-                    {!isPlaying && <FaPlayCircle className={styles.musicPlayIcons} onClick={togglePlaying}/>}
-                    {isPlaying && <FaPauseCircle className={styles.musicPlayIcons} onClick={togglePlaying}/>}
+                    {!musicCtx.isPlaying && <FaPlayCircle className={styles.musicPlayIcons} onClick={togglePlaying}/>}
+                    {musicCtx.isPlaying && <FaPauseCircle className={styles.musicPlayIcons} onClick={togglePlaying}/>}
                     <FaForward className={styles.musicPlayIcons} onClick={handleForward}/>
                     <IoCaretForward className={styles.musicPlayIcons} onClick={handleNextSong}/>
                     <p className={styles.seekTimes}>{Math.floor(duration/60)<=9? `0${Math.floor(duration/60)}` : Math.floor(duration/60)}:{Math.floor(duration%60)<=9?`0${Math.floor(duration%60)}`:Math.floor(duration%60)}</p>
