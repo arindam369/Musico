@@ -143,7 +143,8 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding-bottom: 50px;
+    padding-bottom: 120px;
+    position: relative;
 }
 .musicBox{
     background: rgb(87, 87, 87);
@@ -154,7 +155,7 @@
     padding: 18px;
     border-radius: 6px;
     width: 180px;
-    margin: 5px 10px;
+    margin: 8px 10px;
     /* height: 200px; */
 }
 .musicTitleSubtitle{
@@ -463,4 +464,16 @@
         padding: 15px 20px;
         z-index: 15;
     }
+}
+.loadMoreSongsButton{
+    position: absolute;
+    bottom: 70px;
+    padding: 10px 25px;
+    border-radius: 6px;
+    border: 0px;
+    background: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
+    color: white;
+    font-weight: 700;
+    background: linear-gradient(to right, rgb(5, 117, 230), rgb(2, 27, 121));
+    cursor: pointer;
 }

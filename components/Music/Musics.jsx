@@ -8,13 +8,31 @@ import styles from "./../../styles/Home.module.css";
 import Image from "next/image";
 import {AiFillPlayCircle} from "react-icons/ai";
 import {HiPause} from "react-icons/hi";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import MusicContext from "../../store/MusicContext";
 import { useRouter } from "next/router";
+import { notification } from "antd";
 
 export default function Musics({ musics }) {
+  const [loadMoreText, setLoadMoreText] = useState("Load More");
+
   const musicCtx = useContext(MusicContext);
   const router = useRouter();
+  const loadMore = ()=>{
+    if(musicCtx.limits === 40){
+      notification['error']({
+        message: `No more songs found`,
+        duration: 2
+      })
+      return;
+    }
+
+    setLoadMoreText("Loading...");
+    musicCtx.loadSongs(musicCtx.query, musicCtx.limits+5);
+    setTimeout(() => {
+      setLoadMoreText("Load More");
+    }, 1000);
+  }
 
   return (
     <>
@@ -54,8 +72,8 @@ export default function Musics({ musics }) {
                           <div className={styles.musicBoxImageDiv}>
                               <Image
                               src={songData.image? songData.image[songData.image.length-1].link: "/assets/no-image.png"}
-                              height={100}
-                              width={100}
+                              height={200}
+                              width={200}
                               alt="coverart_image"
                               className={styles.musicBoxImage}
                               onClick={()=>{musicCtx.updateSongIndex(id); musicCtx.playSong({ musicDp: songData.image? songData.image[songData.image.length-1].link: "/assets/no-image.png", id: songData.id, audioUrl: songData.downloadUrl[songData.downloadUrl.length-1].link, title: songData.name, subtitle: songData.primaryArtists})}}
@@ -77,6 +95,7 @@ export default function Musics({ musics }) {
                       // {/* </SwiperSlide> */}
                   );
               })}
+              <button onClick={loadMore} className={styles.loadMoreSongsButton}>{loadMoreText}</button>
           </>
         {/* </Swiper> */}
         {/* {musicCtx.activeSong && <audio src={musicCtx.activeSong.audioUrl} autoPlay/>} */}

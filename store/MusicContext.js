@@ -10,17 +10,22 @@ const MusicContext = React.createContext({
   volume: "",
   songDetails: {},
   isPlaying: "",
+  query: "",
+  limits: "",
   searchSongsByQuery: () => {},
   getInstrumentalSongs: ()=>{},
   getTrendingSongs: ()=>{},
   playSong: (song_id) => {},
   updateVolume: (vol)=>{},
   getSongDetails: (song_id)=>{},
-  updatePlaying: (isNowPlaying)=>{}
+  updatePlaying: (isNowPlaying)=>{},
+  loadSongs: (query, limits)=>{}
 });
 
 export const MusicContextProvider = (props) => {
   const [songs, setSongs] = useState(null);
+  const [query, setQuery] = useState(null);
+  const [limits, setLimits] = useState(null);
   // const [instrumentalSongs, setInstrumentalSongs] = useState(null);
   // const [trendingSongs, setTrendingSongs] = useState(null);
   const [heading, setHeading] = useState("Recommended Artists");
@@ -32,8 +37,10 @@ export const MusicContextProvider = (props) => {
 
   const searchSongsByQuery = async (query) => {
     setHeading(`Search Results for '${query}'`);
+    setQuery(query);
+    setLimits(15);
     await fetch(
-      `${process.env.NEXT_PUBLIC_SEARCH_URL}?query=${query}`,
+      `${process.env.NEXT_PUBLIC_SEARCH_URL}?query=${query}&page=1&limit=15`,
     )
       .then((response) => {
         return response.json();
@@ -53,6 +60,22 @@ export const MusicContextProvider = (props) => {
     console.log("Focus");
     searchSongsByQuery("FOCus");
     setHeading("Focus");
+  }
+  const loadSongs = async (query, newLimits)=>{
+    await fetch(
+      `${process.env.NEXT_PUBLIC_SEARCH_URL}?query=${query}&page=1&limit=${newLimits}`,
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        setSongs(response.data.results);
+        return response;
+      })
+      .catch((err) => {
+        return err;
+      });
+    setLimits(newLimits);
   }
 
   const updatePlaying = (isNowPlaying)=>{
@@ -105,6 +128,8 @@ export const MusicContextProvider = (props) => {
     volume: volume,
     songDetails: songDetails,
     isPlaying: isPlaying,
+    query: query,
+    limits: limits,
     searchSongsByQuery: searchSongsByQuery,
     playSong: playSong,
     updateVolume: updateVolume,
@@ -113,7 +138,8 @@ export const MusicContextProvider = (props) => {
     playAndGetDetails: playAndGetDetails,
     discoverSongs: discoverSongs,
     getFocusSongs: getFocusSongs,
-    updatePlaying: updatePlaying
+    updatePlaying: updatePlaying,
+    loadSongs: loadSongs
   };
 
   return (

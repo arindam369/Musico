@@ -55,7 +55,7 @@ export default function Artists(){
                                 <div className={styles.artistBox} onClick={()=>{
                                     musicCtx.searchSongsByQuery(artist.name);
                                 }}>
-                                    <Image src={"/assets/artists/" + artist.image} height={150} width={150} alt="artist_image" className={styles.artistImage}/>
+                                    <Image src={"/assets/artists/" + artist.image} height={250} width={250} alt="artist_image" className={styles.artistImage}/>
                                     <h3 className={styles.artistName}>{artist.name}</h3>
                                 </div>
                             </SwiperSlide>

@@ -49,7 +49,7 @@ export default function Navbar(){
                         {visibleSidebar && <IoCloseSharp className={styles.closeIcon} onClick={toggleSidebar}/>}
                         <div className={styles.sidebarLogo}>Musico</div>
                         <li className={styles.navElement} onClick={() => {musicCtx.discoverSongs();               setVisibleSidebar(false);}}><FaHome className={styles.navIcons}/> Discover Songs</li>
-                        <li className={styles.navElement} onClick={() => {musicCtx.getFocusSongs();               setVisibleSidebar(false);}}><TbWorld className={styles.navIcons}/> Focus</li>
+                        <li className={styles.navElement} onClick={() => {musicCtx.getFocusSongs();               setVisibleSidebar(false);}}><RiFocus2Line className={styles.navIcons}/> Focus</li>
                         {/* <li className={styles.navElement}><SiBeatsbydre className={styles.navIcons}/> Top Artists</li> */}
                         {/* <li className={styles.navElement}><HiChartSquareBar className={styles.navIcons}/> Top Charts</li> */}
                     </div>

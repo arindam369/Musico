@@ -75,7 +75,7 @@ export default function MusicPlayer(){
                 <input type="range" step="any" min={0} max={duration} value={currTime} onInput={handleSetCurrTime} className={styles.musicTimeBar}/>
 
                 <div className={styles.musicPlayerLeftpart}>
-                    <Image src={musicCtx.activeSong && musicCtx.activeSong.musicDp} height={100} width={100} alt="musicDp" className={styles.musicDp}/>
+                    <Image src={musicCtx.activeSong && musicCtx.activeSong.musicDp} height={200} width={200} alt="musicDp" className={styles.musicDp}/>
                     <div className={styles.musicDetails}>
                         <h4 className={styles.musicTitleName}>{musicCtx.activeSong.title.length > 30 ? musicCtx.activeSong.title.slice(0, 30)+"...":musicCtx.activeSong.title}</h4>
                         <h6 className={styles.musicSubtitleName}>{musicCtx.activeSong.subtitle.length > 40 ? musicCtx.activeSong.subtitle.slice(0, 40)+"...":musicCtx.activeSong.subtitle}</h6>
