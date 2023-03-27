@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
         />
         <meta
           name="keywords"
-          content="Musico, music, songs, song, gaana, spotify-api"
+          content="Musico, music, songs, song, gaana"
         />
         <meta name="author" content="Arindam Halder" />
         <title>Musico</title>
@@ -24,9 +24,9 @@ export default function App({ Component, pageProps }) {
           property="og:description"
           content="Listen your favourite songs with Musico"
         />
-        {/* <meta property="og:url" content="https://mozify-nu.vercel.app/" /> */}
+        <meta property="og:url" content="https://musico369.netlify.app/" />
         <meta property="og:site_name" content="Musico" />
-        {/* <meta property="og:image" itemProp="image" content="https://mozify-nu.vercel.app/favicon.ico"/> */}
+        <meta property="og:image" itemProp="image" content="https://musico369.netlify.app/favicon.ico"/>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
         <link rel="manifest" href="manifest.json" />
