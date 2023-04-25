@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Musico
 
-First, run the development server:
+Listen your favourite songs with **Musico!** You don't even have to register in any account.
+
+Link to the website: https://musico369.netlify.app
+
+
+
+## Screenshots
+
+<img src="https://user-images.githubusercontent.com/92720594/234371203-cfe56417-65e8-40ef-9279-06018690c62d.png" data-canonical-src="https://user-images.githubusercontent.com/92720594/234371203-cfe56417-65e8-40ef-9279-06018690c62d.png" width="500" height="300" />
+<br/> 
+
+<img src="https://user-images.githubusercontent.com/92720594/234367950-7c8a490e-0956-4310-87d9-2828c04871e0.png" data-canonical-src="https://user-images.githubusercontent.com/92720594/234367950-7c8a490e-0956-4310-87d9-2828c04871e0.png" width="500" height="300" />
+
+
+## Features
+
+- Search any songs
+- Play/Pause song
+- Fast Forward/ Rewind song
+- Control Volume
+- Recommended Artists
+
+
+    
+## Run Locally
+
+Clone the project **Musico**
 
 ```bash
-npm run dev
-# or
-yarn dev
+  git clone https://github.com/arindam369/Musico.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+  cd Musico
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Install all the dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+  npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Start the Development Server
 
-## Learn More
+```bash
+  npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Feedback
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+*If you have any kind of queries, please reach out to me*
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://arindam369.netlify.app)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arindam369)
