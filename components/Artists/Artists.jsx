@@ -65,6 +65,8 @@ export default function Artists(){
 
 
             </Swiper>
+
+            <div className={styles.centerText}>Swipe to see more artists</div>
         </>
     )
 }

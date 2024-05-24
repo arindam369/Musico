@@ -421,6 +421,7 @@
     border-radius: 6px;
     width: 150px;
     cursor: pointer;
+    margin: 15px 0px;
 }
 .artistName{
     color: white;
@@ -476,4 +477,10 @@
     font-weight: 700;
     background: linear-gradient(to right, rgb(5, 117, 230), rgb(2, 27, 121));
     cursor: pointer;
+}
+
+.centerText{
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 10px;
 }

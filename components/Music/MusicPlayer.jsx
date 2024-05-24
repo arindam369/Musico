@@ -55,7 +55,8 @@ export default function MusicPlayer(){
     function handleNextSong(){
         const nextSong = musicCtx.songs[((musicCtx.songIndex+1)%musicCtx.songs.length+musicCtx.songs.length)%musicCtx.songs.length];
         const nextSongData = {
-            musicDp: nextSong.image? nextSong.image[nextSong.image.length-1].link: "/assets/no-image.png", id: nextSong.id, audioUrl: nextSong.downloadUrl[nextSong.downloadUrl.length-1].link, title: nextSong.name, subtitle: nextSong.primaryArtists
+            musicDp: nextSong.image? nextSong.image[nextSong.image.length-1].url: "/assets/no-image.png", id: nextSong.id, audioUrl: nextSong.downloadUrl[nextSong.downloadUrl.length-1].url, title: nextSong.name, subtitle: nextSong.artists.primary.length > 0 &&
+            nextSong.artists.primary.map(artist => artist.name).join(", ").substring(0, 40)
         }
         musicCtx.updateActiveSong(nextSongData);
         musicCtx.updateSongIndex(musicCtx.songIndex+1);
@@ -63,7 +64,8 @@ export default function MusicPlayer(){
     function handlePrevSong(){
         const prevSong = musicCtx.songs[((musicCtx.songIndex-1)%musicCtx.songs.length+musicCtx.songs.length)%musicCtx.songs.length];
         const prevSongData = {
-            musicDp: prevSong.image? prevSong.image[prevSong.image.length-1].link: "/assets/no-image.png", id: prevSong.id, audioUrl: prevSong.downloadUrl[prevSong.downloadUrl.length-1].link, title: prevSong.name, subtitle: prevSong.primaryArtists
+            musicDp: prevSong.image? prevSong.image[prevSong.image.length-1].url: "/assets/no-image.png", id: prevSong.id, audioUrl: prevSong.downloadUrl[prevSong.downloadUrl.length-1].url, title: prevSong.name, subtitle: prevSong.artists.primary.length > 0 &&
+            prevSong.artists.primary.map(artist => artist.name).join(", ").substring(0, 40)
         }
         musicCtx.updateActiveSong(prevSongData);
         musicCtx.updateSongIndex(musicCtx.songIndex-1);

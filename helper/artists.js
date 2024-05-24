@@ -43,5 +43,15 @@ export const RecommendedArtists = [
         name: "Avicii",
         image: "avicii.jpg",
         key: 8
-    }
+    },
+    {
+        name: "Anuv Jain",
+        image: "anuv_jain.jpg",
+        key: 9
+    },
+    {
+        name: "Pritam",
+        image: "pritam.jpg",
+        key: 9
+    },
 ]

@@ -57,7 +57,6 @@ export const MusicContextProvider = (props) => {
     setHeading("Recommended Artists");
   }
   const getFocusSongs = () => {
-    console.log("Focus");
     searchSongsByQuery("FOCus");
     setHeading("Focus");
   }
